@@ -1,86 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Morro Site Manager</title>
+
 <style>
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#0b2a4a;
-color:white;
+body {
+  font-family: Arial;
+  margin:0;
+  background:#0f172a;
+  color:white;
 }
+
 header{
-padding:18px;
-text-align:center;
-background:#071d34;
-font-size:20px;
-font-weight:bold;
+  background:#020617;
+  padding:15px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
 }
-.container{padding:15px;}
+
+.card{
+  background:#1e293b;
+  margin:15px;
+  padding:15px;
+  border-radius:12px;
+}
+
 button{
-width:100%;
-padding:16px;
-margin:8px 0;
-border:none;
-border-radius:12px;
-background:#7ed957;
-font-size:16px;
-font-weight:bold;
-}
-.section{
-background:white;
-color:black;
-padding:12px;
-margin:8px 0;
-border-radius:10px;
-}
-textarea{
-width:100%;
-padding:10px;
-margin-top:10px;
+  background:#22c55e;
+  border:none;
+  padding:12px;
+  width:100%;
+  border-radius:10px;
+  color:black;
+  font-weight:bold;
+  margin-top:10px;
 }
 </style>
 </head>
+
 <body>
+
 <header>Morro Site Manager</header>
-<div class="container">
-<div id="app"></div>
+
+<div class="card">
+<h3>Daily Site Check</h3>
+<label>Site Safe?</label>
+<select id="safe">
+<option>Yes</option>
+<option>No</option>
+</select>
+
+<label>Workers on site</label>
+<input id="workers" type="number">
+
+<button onclick="save()">Save Report</button>
 </div>
+
 <script>
-let issues=[];
-
-function check(txt){
-return `<div class="section"><input type="checkbox"> ${txt}</div>`;
+function save(){
+ alert("Report Saved ✔️");
 }
+</script>
 
-function load(type){
-let html="";
-
-if(type==="walk"){
-html=`
-<h3>Daily Walkaround</h3>
-${check("Inductions complete")}
-${check("Sign in system active")}
-${check("Walkways clear")}
-${check("Materials stored correctly")}
-${check("Housekeeping acceptable")}
-`;
-}
-
-if(type==="issues"){
-html=`
-<h3>Log Issue</h3>
-<textarea id="issueText" placeholder="Describe issue"></textarea>
-<ul id="list"></ul>
-`;
-setTimeout(renderIssues,50);
-}
-<h3>Report</h3>
-<p>Total issues logged: ${issues.length}</p>
-`;
-}
 </body>
 </html>
-:::
